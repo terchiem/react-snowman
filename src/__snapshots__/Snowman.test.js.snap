@@ -15,7 +15,7 @@ exports[`matches snapshot 1`] = `
     <p
       class="Snowman-word"
     >
-      _____
+      ______
     </p>
     <p>
       <button
@@ -149,6 +149,9 @@ exports[`matches snapshot 1`] = `
         z
       </button>
     </p>
+    <button>
+      Reset Game
+    </button>
   </div>
 </DocumentFragment>
 `;

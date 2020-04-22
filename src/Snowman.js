@@ -9,7 +9,7 @@ import img5 from "./5.png";
 import img6 from "./6.png";
 import { randomWord, ENGLISH_WORDS } from './words';
 
-function Snowman({maxWrong, images, words}) {
+function Snowman({ maxWrong, images, words }) {
   /** by default, allow 6 guesses and use provided gallows images. */
 
   const [nWrong, updateNWrong] = useState(0);
@@ -67,8 +67,15 @@ function Snowman({maxWrong, images, words}) {
 
       <p className="Snowman-word">{guessedWord()}</p>
       <p>{buttons}</p>
+      <button onClick={resetGame}>Reset Game</button>
     </div>
   );
+
+  function resetGame() {
+    updateNWrong(0);
+    updateGuessed(new Set());
+    updateAnswer(randomWord(words));
+  }
 }
 
 Snowman.defaultProps = {

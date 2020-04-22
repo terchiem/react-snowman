@@ -50,3 +50,18 @@ it("shows image and correct word after max wrong guesses", function () {
   const msg = queryByText("You lose! The word was: apple");
   expect(msg).not.toBe(null);
 })
+
+it("Resets game when reset button is pressed", function () {
+  const { queryByText, getByTestId } = render(<Snowman words={["apple"]}/>);
+
+  fireEvent.click(queryByText("b"));
+  const img = getByTestId("img");
+  expect(img).toHaveAttribute("src", "1.png");
+  expect(queryByText('Number wrong: 1')).not.toBe(null);
+
+  fireEvent.click(queryByText("Reset Game"));
+  const newImg = getByTestId("img");
+  expect(newImg).toHaveAttribute("src", "0.png");
+  expect(queryByText('Number wrong: 0')).not.toBe(null);
+
+})
